@@ -77,25 +77,36 @@ housesales %>%
 #
 # Filter for the city is Dallas, and the month is June (the number 6). 
 
-
-
+# I am using the filter function to return results where the city equals Dallas and 
+# the month equals 6 for June. 
+filter(housesales, city == "Dallas", month == 6)
 
 
 # 8) Build on what we've done above. Now that we have June numbers for Dallas for every year,
 # arrange the results by sales from highest-to-lowest to show what year had the highest June sales.
 
-
-
+# I am using the pipe to build on what I have already done and add the arrange function
+# to show sales in decreasing order. 
+housesales %>% 
+  filter(city == "Dallas", month == 6) %>% 
+  arrange(desc(sales))
 
 
 
 # 9) Now do the same as Question 8, but this time instead of Dallas, show results for Corpus Christi
 
-
-
+# I used the same methodology as above, but I changed the filter to show Corpus Christi results.
+housesales %>%  
+  filter(city == "Corpus Christi", month == 6) %>% 
+  arrange(desc(sales))
 
 
 
 # 10) Finally, using the Corpus Christi code from Question 9, instead of June
 # use the month of February (2) instead.
+
+# I pasted the code from above and changed the month to 2. 
+housesales %>%  
+  filter(city == "Corpus Christi", month == 2) %>% 
+  arrange(desc(sales))
 
