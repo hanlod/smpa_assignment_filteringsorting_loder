@@ -44,22 +44,27 @@ filter(housesales, city == 'Houston')
 # 4) Filter for only where the city is Houston as above, and now also filter for only 
 # the year 2010. The results should give you 12 records, one for each month in 2010 for Houston.
 
-
-
+# I am using the filter function on the data to make the city equal Houston and the year equal 2010.
+filter(housesales, city == "Houston", year == 2010)
 
 
 # 5) Build on what you've done above. Filter for only where the city is Houston as above, 
 # and the year is 2010. Now add a sort using arrange() to sort the results based on the number
 # of home sales (the "sales" column) from most to least.
 
-
-
+# I am combining the arrange and filter functions to only get results from Houston in 2010
+# in descending order by sales.
+arrange(filter(housesales, city == "Houston", year == 2010), desc(sales))
 
 
 # 6) Piggyback on what you've done above. 
 # Do the same as #5, only this time instead of Houston return records for Dallas
 
-
+# I am using the pipe function to build on the code and only return results from 
+# Dallas in 2010 in descending order based on sales. 
+housesales %>% 
+  filter(year == 2010, city == "Dallas") %>% 
+  arrange(desc(sales))
 
 
 
